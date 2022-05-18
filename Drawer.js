@@ -7,13 +7,13 @@ import {
   View,
   FlatList,
   TextInput,
+  Picker,
 } from "react-native";
 import DataList from "./DataList";
 import List from "./LIst";
 import store from "./redux";
 import axios from "axios";
-
-const Drawer = () => {
+const Drawer = ({ navigation }) => {
   let DATA = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -31,7 +31,7 @@ const Drawer = () => {
   const drawer = useRef(null);
   const [selectedId, setSelectedId] = useState(null);
   const [datas, setdata] = useState({});
-  const [number, onChangeNumber] = React.useState(null);
+  const [number, onChangeNumber] = React.useState("");
   store.subscribe(() => {
     setSelectedId(store.getState().content.selected);
   });
@@ -85,7 +85,6 @@ const Drawer = () => {
         "X-RapidAPI-Key": "f0aec3dfdcmsh08604cf6b132fd2p18f93cjsn88d9c998e202",
       },
     };
-
     axios
       .request(options)
       .then(function (response) {
@@ -105,7 +104,6 @@ const Drawer = () => {
       renderNavigationView={navigationView}
     >
       <View style={styles.container}>
-        <Text style={styles.paragraph}>News App</Text>
         <TextInput
           style={styles.input}
           onChangeText={onChangeNumber}
@@ -119,6 +117,11 @@ const Drawer = () => {
             onChangeNumber("");
           }}
         />
+        <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate("Details")}
+        />
+
         <DataList data={datas} />
         <Button title="Menu" onPress={() => drawer.current.openDrawer()} />
 

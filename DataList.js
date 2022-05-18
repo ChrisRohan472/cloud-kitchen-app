@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Linking,
   ToastAndroid,
+  Image,
 } from "react-native";
 
 const Item = ({ title }) => (
@@ -33,7 +34,15 @@ const DataList = (props) => {
         Linking.openURL(item.link);
       }}
     >
-      <Item title={item.title} />
+      <View style={{ backgroundColor: "#dddddd", margin: 8 }}>
+        <Image
+          style={styles.stretch}
+          source={{
+            uri: item.media,
+          }}
+        />
+        <Item title={item.title} />
+      </View>
     </TouchableOpacity>
   );
 
@@ -57,12 +66,22 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: "#dddddd",
     padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    width: "100%",
   },
   title: {
     fontSize: 20,
+  },
+  tinyLogo: {
+    padding: 30,
+    alignSelf: "center",
+    backgroundColor: "#dddddd",
+    width: 50,
+    height: 50,
+  },
+  stretch: {
+    padding: 20,
+    width: "100%",
+    height: 200,
+    resizeMode: "stretch",
   },
 });
 
