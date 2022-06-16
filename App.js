@@ -6,13 +6,17 @@ import Drawer from "./Drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SwitchExample from "./Details";
+import Feedback from "./Feedback";
+import MealDetails from "./MealDetails";
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="News App">
         <Stack.Screen name="News App" component={Drawer} />
-        <Stack.Screen name="Details" component={SwitchExample} />
+        <Stack.Screen name="User Details" component={SwitchExample} />
+        <Stack.Screen name="Feedback" component={Feedback} />
+        <Stack.Screen name="Meal Details" component={MealDetails} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={{ padding: 10 }}>

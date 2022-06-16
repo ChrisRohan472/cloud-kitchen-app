@@ -118,8 +118,8 @@ const Drawer = ({ navigation }) => {
           }}
         />
         <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate("Details")}
+          title="Go to User Details"
+          onPress={() => navigation.navigate("User Details")}
         />
 
         <DataList data={datas} />
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: "100%",
     textAlign: "center",
-    borderColor: "#000000",
+    borderColor: "#bbbbbb",
     margin: 12,
     borderWidth: 1,
     padding: 10,

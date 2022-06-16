@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   StatusBar,
-  TouchableOpacity,
+  TouchableHighlight,
   Linking,
   ToastAndroid,
   Image,
@@ -28,13 +28,23 @@ const showToastWithGravityAndOffset = () => {
 };
 const DataList = (props) => {
   const renderItem = ({ item }) => (
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor={"#cccccc"}
       onPress={() => {
         showToastWithGravityAndOffset();
         Linking.openURL(item.link);
       }}
     >
-      <View style={{ backgroundColor: "#dddddd", margin: 8 }}>
+      <View
+        style={{
+          backgroundColor: "#dddddd",
+          margin: 8,
+          borderRadius: 10,
+          borderWidth: 2,
+          borderColor: "#dddddd",
+          padding: 4,
+        }}
+      >
         <Image
           style={styles.stretch}
           source={{
@@ -43,7 +53,7 @@ const DataList = (props) => {
         />
         <Item title={item.title} />
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 
   return (
